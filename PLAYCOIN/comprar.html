@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PLAY COIN — Comprar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="menu">
+    <a href="index.html"><img class="logo" src="assets/img/logo-playcoin.png" alt="PLAY COIN"></a>
+    <ul class="lista">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="producto.html">Producto</a></li>
+      <li><a href="porque.html">¿Por qué elegirlo?</a></li>
+      <li><a href="nosotros.html">Nuestra empresa</a></li>
+      <li><a href="experiencia.html">Experiencia</a></li>
+      <li><a href="comprar.html" class="activo">Comprar</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>HAZ TU PEDIDO</h2>
+    <form id="formulario" class="formulario">
+
+      <img id="foto-pedido" class="foto-pedido" src="assets/img/lata-hydratate.png" alt="Producto elegido">
+
+      <label>Producto</label>
+      <select id="producto-select">
+        <option value="hydratate">HYDRATATE COIN</option>
+        <option value="protein">PROTEIN COIN</option>
+        <option value="refresh">REFRESH COIN</option>
+        <option value="energy">ENERGY COIN</option>
+      </select>
+
+      <label>Presentación</label>
+      <select id="presentacion">
+        <option value="1">Lata individual</option>
+        <option value="6">Pack x6 (descuento)</option>
+      </select>
+
+      <label>Cantidad</label>
+      <div class="cantidad">
+        <button type="button" id="menos">-</button>
+        <input type="number" id="cantidad" value="1" min="1" max="99">
+        <button type="button" id="mas">+</button>
+      </div>
+
+      <p class="total">Total: <span id="total">$8.000</span></p>
+
+      <label>Nombre</label>
+      <input type="text" id="nombre" placeholder="Tu nombre">
+
+      <label>Correo</label>
+      <input type="text" id="correo" placeholder="tucorreo@ejemplo.com">
+
+      <label>Teléfono</label>
+      <input type="text" id="telefono" placeholder="3001234567">
+
+      <label>Dirección</label>
+      <input type="text" id="direccion" placeholder="Tu dirección">
+
+      <p id="errores" class="error"></p>
+      <button type="submit" class="boton">HACER PEDIDO</button>
+    </form>
+
+    <div id="resumen" class="resumen"></div>
+  </section>
+
+  <footer>
+    <p>© PLAY COIN · Contacto: ezequielmarinh@gmail.com</p>
+    <p>Instagram · TikTok · Twitch · YouTube</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
