@@ -555,6 +555,12 @@ footer{
         justify-content: center;
         gap: 12px;
     }
+    .banner{
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 1983 / 793;
+        background-size: 100% 100%;
+    }
     .frase h1{
         font-size: 18px;
     }
