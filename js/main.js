@@ -12,6 +12,132 @@ if (intro) {
     }, 3200);
 }
 
+let monedasPorLata = 10;
+
+let codigosValidos = [];
+for (let i = 1; i <= 30; i++) {
+    codigosValidos.push("PLAY-" + i);
+}
+
+function leerSaldo() {
+    let saldo = localStorage.getItem("playcoins");
+    if (saldo == null) {
+        return 0;
+    }
+    return Number(saldo);
+}
+
+function guardarSaldo(nuevoSaldo) {
+    localStorage.setItem("playcoins", nuevoSaldo);
+    mostrarSaldo();
+}
+
+function mostrarSaldo() {
+    let lugares = document.querySelectorAll(".saldo-numero");
+    for (let i = 0; i < lugares.length; i++) {
+        lugares[i].textContent = leerSaldo();
+    }
+}
+
+function leerCodigosUsados() {
+    let texto = localStorage.getItem("codigosUsados");
+    if (texto == null) {
+        return [];
+    }
+    return texto.split(",");
+}
+
+function guardarCodigoUsado(codigo) {
+    let usados = leerCodigosUsados();
+    usados.push(codigo);
+    localStorage.setItem("codigosUsados", usados.join(","));
+}
+
+mostrarSaldo();
+
+let mensajeCanje = document.getElementById("mensaje-canje");
+
+if (mensajeCanje) {
+    let correoCanje = document.getElementById("correo-canje");
+    let botonesCanjear = document.querySelectorAll(".boton-canjear");
+
+    function canjearRecompensa(nombre, costo) {
+        let correo = correoCanje.value.trim();
+
+        mensajeCanje.style.display = "block";
+
+        if (leerSaldo() < costo) {
+            mensajeCanje.className = "mensaje mal";
+            mensajeCanje.innerHTML = "<p>No tienes suficientes PlayCoins para reclamar esta recompensa.</p>";
+        } else if (correo.indexOf("@") == -1 || correo.indexOf(".") == -1) {
+            mensajeCanje.className = "mensaje mal";
+            mensajeCanje.innerHTML = "<p>Escribe un correo válido para confirmar el canje.</p>";
+        } else {
+            guardarSaldo(leerSaldo() - costo);
+
+            mensajeCanje.className = "mensaje bien";
+            mensajeCanje.innerHTML = "<h3>¡FELICIDADES! Has solicitado tu recompensa.</h3>" +
+                "<p>" + nombre + " (-" + costo + " PlayCoins)</p>" +
+                "<p>Tus PlayCoins han sido descontados correctamente. Nos pondremos en contacto contigo a través de tu correo electrónico para informarte sobre tu premio.</p>" +
+                "<p>Esto es solo una simulación para la demostración del proyecto.</p>";
+        }
+    }
+
+    for (let i = 0; i < botonesCanjear.length; i++) {
+        botonesCanjear[i].onclick = function () {
+            let nombre = botonesCanjear[i].getAttribute("data-nombre");
+            let costo = Number(botonesCanjear[i].getAttribute("data-costo"));
+            canjearRecompensa(nombre, costo);
+        };
+    }
+}
+
+let codigoLata = document.getElementById("codigo-lata");
+
+if (codigoLata) {
+    let mensajeLata = document.getElementById("mensaje-lata");
+    let monedaLata = document.getElementById("moneda-lata");
+
+    let codigoDeEstaVisita = sessionStorage.getItem("codigoVisita");
+
+    mensajeLata.style.display = "block";
+
+    if (codigoDeEstaVisita == null) {
+        let disponibles = [];
+        let usados = leerCodigosUsados();
+
+        for (let i = 0; i < codigosValidos.length; i++) {
+            if (usados.indexOf(codigosValidos[i]) == -1) {
+                disponibles.push(codigosValidos[i]);
+            }
+        }
+
+        if (disponibles.length == 0) {
+            codigoLata.textContent = "---";
+            mensajeLata.className = "mensaje mal";
+            mensajeLata.innerHTML = "<p>Ya usaste todos los códigos de lata en este navegador.</p>";
+        } else {
+            let posicion = Math.floor(Math.random() * disponibles.length);
+            let codigo = disponibles[posicion];
+
+            guardarSaldo(leerSaldo() + monedasPorLata);
+            guardarCodigoUsado(codigo);
+            sessionStorage.setItem("codigoVisita", codigo);
+
+            codigoLata.textContent = codigo;
+            mensajeLata.className = "mensaje bien";
+            mensajeLata.innerHTML = "<p>Escaneaste tu lata y ganaste " + monedasPorLata + " PlayCoins.</p>";
+            monedaLata.classList.add("gira");
+        }
+    } else {
+        codigoLata.textContent = codigoDeEstaVisita;
+        mensajeLata.className = "mensaje bien";
+        mensajeLata.innerHTML = "<p>Ya reclamaste las monedas de este código.</p>";
+    }
+} else {
+    sessionStorage.removeItem("codigoVisita");
+}
+
 let fotoGrande = document.getElementById("foto-grande");
 let fotosPequenas = document.querySelectorAll(".mini");
 

@@ -543,9 +543,167 @@ footer{
     line-height: 1.25;
 }
 
+.saldo-menu{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #ffcc1a;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #0b0b1a;
+    border: 2px solid #ffcc1a;
+    border-radius: 20px;
+    padding: 3px 14px 3px 8px;
+}
+
+.saldo-menu:hover{
+    background-color: #ffcc1a;
+    color: black;
+}
+
+.saldo-menu img{
+    height: 28px;
+}
+
+.moneda-chica{
+    height: 28px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.saldo-grande{
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    background-color: #1a1a38;
+    border: 3px solid #ffcc1a;
+    border-radius: 14px;
+    padding: 15px 40px;
+    margin: 10px 0 25px 0;
+}
+
+.saldo-grande img{
+    height: 90px;
+}
+
+.saldo-grande .saldo-numero{
+    font-family: 'Press Start 2P', monospace;
+    font-size: 44px;
+    color: #ffcc1a;
+}
+
+.texto-saldo{
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.moneda-lata{
+    height: 130px;
+    margin: 10px 0 20px 0;
+}
+
+.codigo-lata{
+    display: inline-block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 34px;
+    color: #ffcc1a;
+    border: 3px dashed #ffcc1a;
+    border-radius: 12px;
+    padding: 15px 30px;
+    margin: 10px 0 20px 0;
+}
+
+.gira{
+    animation: girar 1s;
+}
+
+@keyframes girar{
+    from{ transform: rotateY(0deg); }
+    to{ transform: rotateY(720deg); }
+}
+
+.mensaje{
+    display: none;
+    max-width: 700px;
+    margin: 15px auto;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #1a1a38;
+}
+
+.mensaje.bien{
+    border: 2px solid #22c55e;
+}
+
+.mensaje.mal{
+    border: 2px solid #ff6b6b;
+}
+
+.fila-codigo{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.campo{
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 6px;
+    border: none;
+    width: 280px;
+    max-width: 100%;
+}
+
+.recompensa{
+    background-color: #1a1a38;
+    border: 3px solid #ffcc1a;
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.2s;
+}
+
+.recompensa:hover{
+    transform: translateY(-6px);
+}
+
+.recompensa h3{
+    font-size: 22px;
+}
+
+.costo{
+    color: #ffcc1a;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.nota{
+    font-size: 17px;
+    color: #cfcfe8;
+    margin-top: 20px;
+}
+
 @media (max-width: 800px){
     .grid4, .grid3, .grid2{
         grid-template-columns: 1fr;
+    }
+    .codigo-lata{
+        font-size: 20px;
+        padding: 12px 18px;
+    }
+    .saldo-grande{
+        gap: 15px;
+        padding: 12px 20px;
+    }
+    .saldo-grande img{
+        height: 60px;
+    }
+    .saldo-grande .saldo-numero{
+        font-size: 26px;
     }
     .menu{
         justify-content: center;

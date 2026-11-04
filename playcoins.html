@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PLAY COIN — PlayCoins</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="menu">
+    <a href="index.html"><img class="logo" src="documentos/img/logo-playcoin.png" alt="PLAY COIN"></a>
+    <ul class="lista">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="producto.html">Producto</a></li>
+      <li><a href="porque.html">¿Por qué elegirlo?</a></li>
+      <li><a href="nosotros.html">Nuestra empresa</a></li>
+      <li><a href="experiencia.html">Experiencia</a></li>
+      <li><a href="comprar.html">Comprar</a></li>
+    </ul>
+    <a href="playcoins.html" class="saldo-menu">
+      <img src="documentos/img/coin.png" alt="PlayCoin">
+      <span class="saldo-numero">0</span> PLAYCOINS
+    </a>
+  </nav>
+
+  <section>
+    <h2>¡BIENVENIDO AL SISTEMA PLAYCOIN!</h2>
+
+    <div class="saldo-grande">
+      <img src="documentos/img/coin.png" alt="Moneda PlayCoin">
+      <div>
+        <span class="saldo-numero">0</span>
+        <p class="texto-saldo">PLAYCOINS</p>
+      </div>
+    </div>
+
+    <p>Acumula monedas y cámbialas por recompensas exclusivas.</p>
+  </section>
+
+  <section class="fondo2">
+    <h2>¿CÓMO FUNCIONAN?</h2>
+    <div class="grid3">
+      <div class="paso"><h3>1. ESCANEA</h3><p>Escanea el código QR que viene en tu lata.</p></div>
+      <div class="paso"><h3>2. GANA</h3><p>Cada lata te da PlayCoins que se guardan en tu saldo.</p></div>
+      <div class="paso"><h3>3. CANJEA</h3><p>Cambia tus PlayCoins por recompensas.</p></div>
+    </div>
+    <p class="nota">Cada código de lata solo se puede usar una vez.</p>
+  </section>
+
+  <section>
+    <h2>CANJEAR RECOMPENSAS</h2>
+
+    <p>Escribe tu correo y elige una recompensa:</p>
+    <div class="fila-codigo">
+      <input type="text" id="correo-canje" class="campo" placeholder="tucorreo@ejemplo.com">
+    </div>
+
+    <div id="mensaje-canje" class="mensaje"></div>
+
+    <div class="grid4">
+      <div class="recompensa">
+        <h3>Descuento PLAYCOIN</h3>
+        <p class="costo"><img class="moneda-chica" src="documentos/img/coin.png" alt="PlayCoin"> 50 PlayCoins</p>
+        <button type="button" class="boton boton-canjear" data-nombre="Descuento PLAYCOIN" data-costo="50">CANJEAR</button>
+      </div>
+      <div class="recompensa">
+        <h3>Producto gratis</h3>
+        <p class="costo"><img class="moneda-chica" src="documentos/img/coin.png" alt="PlayCoin"> 100 PlayCoins</p>
+        <button type="button" class="boton boton-canjear" data-nombre="Producto gratis" data-costo="100">CANJEAR</button>
+      </div>
+      <div class="recompensa">
+        <h3>Producto exclusivo</h3>
+        <p class="costo"><img class="moneda-chica" src="documentos/img/coin.png" alt="PlayCoin"> 150 PlayCoins</p>
+        <button type="button" class="boton boton-canjear" data-nombre="Producto exclusivo" data-costo="150">CANJEAR</button>
+      </div>
+      <div class="recompensa">
+        <h3>Premio especial</h3>
+        <p class="costo"><img class="moneda-chica" src="documentos/img/coin.png" alt="PlayCoin"> 250 PlayCoins</p>
+        <button type="button" class="boton boton-canjear" data-nombre="Premio especial" data-costo="250">CANJEAR</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© PLAY COIN · Contacto: ezequielmarinh@gmail.com</p>
+    <p>Instagram · TikTok · Twitch · YouTube</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
