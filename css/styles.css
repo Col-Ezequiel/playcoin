@@ -155,7 +155,17 @@ section{
 .banner{
     height: 70vh;
     min-height: 320px;
+    overflow: hidden;
     background: url(../documentos/img/banner.png) no-repeat center/cover;
+}
+
+.banner video{
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    border-radius: 0;
+    object-fit: cover;
 }
 
 .frase h1{
@@ -706,18 +716,38 @@ footer{
         font-size: 26px;
     }
     .menu{
-        justify-content: center;
-        gap: 10px;
+        position: static;
+        justify-content: space-between;
+        gap: 6px;
+        padding: 8px 15px;
+    }
+    .menu > a:first-child{
+        order: 1;
+    }
+    .logo{
+        height: 38px;
+    }
+    .saldo-menu{
+        order: 2;
+        font-size: 17px;
+        padding: 2px 12px 2px 6px;
+    }
+    .saldo-menu img{
+        height: 24px;
     }
     .lista{
+        order: 3;
+        width: 100%;
         justify-content: center;
-        gap: 12px;
+        gap: 4px 14px;
+    }
+    .lista a{
+        font-size: 15px;
     }
     .banner{
         height: auto;
         min-height: 0;
-        aspect-ratio: 1983 / 793;
-        background-size: 100% 100%;
+        aspect-ratio: 16 / 9;
     }
     .frase h1{
         font-size: 18px;
